@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "Message.json",
+  "title": "Google Business Message",
+  "description": "A message sent or received through the Google Business Messages API.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Resource name of the message."
+    },
+    "messageId": {
+      "type": "string",
+      "description": "Unique identifier of the message."
+    },
+    "representative": {
+      "type": "object",
+      "description": "The representative sending the message.",
+      "properties": {
+        "representativeType": {
+          "type": "string",
+          "enum": ["BOT", "HUMAN"]
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "avatarImage": {
+          "type": "string"
+        }
+      }
+    },
+    "text": {
+      "type": "string",
+      "description": "Text content of the message."
+    },
+    "richCard": {
+      "type": "object",
+      "description": "Rich card content."
+    },
+    "suggestions": {
+      "type": "array",
+      "description": "Suggested replies or actions.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "fallback": {
+      "type": "string",
+      "description": "Fallback text for unsupported clients."
+    },
+    "containsRichText": {
+      "type": "boolean",
+      "description": "Whether the message contains rich text."
+    },
+    "createTime": {
+      "type": "string",
+      "description": "Timestamp of message creation."
+    }
+  }
+}

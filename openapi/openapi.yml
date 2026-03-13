@@ -1,0 +1,196 @@
+openapi: 3.1.0
+info:
+  title: Google Business Messages API
+  description: >-
+    The Google Business Messages API enables agents to send messages, create
+    events, and manage customer satisfaction surveys within conversations.
+    Allows businesses to communicate with customers directly through Google
+    entry points.
+  version: 1.0.0
+  contact:
+    name: Google
+    url: https://developers.google.com/business-communications/business-messages
+servers:
+  - url: https://businessmessages.googleapis.com/v1
+paths:
+  /conversations/{conversationId}/messages:
+    post:
+      operationId: createMessage
+      summary: Create Message
+      description: Sends a message from an agent to a user.
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  /conversations/{conversationId}/messages/{messageId}:receiptUpdate:
+    patch:
+      operationId: updateReceipt
+      summary: Update Message Receipt
+      description: Sends a receipt for a message from an agent to a user.
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: messageId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Receipt'
+      responses:
+        '200':
+          description: Successful response
+  /conversations/{conversationId}/events:
+    post:
+      operationId: createEvent
+      summary: Create Event
+      description: Creates an event in a conversation.
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+  /conversations/{conversationId}/surveys:
+    post:
+      operationId: createSurvey
+      summary: Create Survey
+      description: Creates a customer satisfaction survey in a conversation.
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Survey'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Survey'
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes: {}
+  schemas:
+    Message:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name of the message.
+        messageId:
+          type: string
+          description: Unique identifier of the message.
+        representative:
+          type: object
+          properties:
+            representativeType:
+              type: string
+              enum:
+                - BOT
+                - HUMAN
+            displayName:
+              type: string
+            avatarImage:
+              type: string
+        text:
+          type: string
+          description: Text content of the message.
+        richCard:
+          type: object
+          description: Rich card content.
+        suggestions:
+          type: array
+          description: Suggested replies or actions.
+          items:
+            type: object
+        fallback:
+          type: string
+          description: Fallback text for unsupported clients.
+        containsRichText:
+          type: boolean
+        createTime:
+          type: string
+    Receipt:
+      type: object
+      properties:
+        receiptType:
+          type: string
+          enum:
+            - READ
+    Event:
+      type: object
+      properties:
+        name:
+          type: string
+        eventType:
+          type: string
+          enum:
+            - TYPING_STARTED
+            - TYPING_STOPPED
+            - REPRESENTATIVE_JOINED
+            - REPRESENTATIVE_LEFT
+        representative:
+          type: object
+          properties:
+            representativeType:
+              type: string
+            displayName:
+              type: string
+    Survey:
+      type: object
+      properties:
+        name:
+          type: string
+        surveyId:
+          type: string
+security:
+  - OAuth2: []

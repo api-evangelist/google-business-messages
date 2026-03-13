@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "bm": "https://businessmessages.googleapis.com/v1/",
+    "Message": "schema:Message",
+    "sender": "schema:sender",
+    "recipient": "schema:recipient",
+    "text": "schema:text",
+    "dateCreated": "schema:dateCreated",
+    "dateRead": "schema:dateRead",
+    "messageAttachment": "schema:messageAttachment",
+    "Organization": "schema:Organization",
+    "Person": "schema:Person",
+    "name": "schema:name",
+    "description": "schema:description"
+  }
+}
