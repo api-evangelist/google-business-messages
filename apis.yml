@@ -1,5 +1,5 @@
 aid: google-business-messages
-name: Google Business Messages API
+name: Google Business Messages
 description: >-
   The Google Business Messages API enables agents to send messages, create
   events, and manage customer satisfaction surveys within conversations. It
