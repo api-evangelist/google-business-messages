@@ -1,14 +1,16 @@
+aid: google-business-messages
 name: Google Business Messages API
 description: >-
   The Google Business Messages API enables agents to send messages, create
   events, and manage customer satisfaction surveys within conversations. It
   allows businesses to communicate with customers directly through Google
   entry points such as Search and Maps.
+type: Index
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-business-messages/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-03-13'
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 tags:
   - Messaging
   - Conversations
@@ -16,7 +18,8 @@ tags:
   - Customer Support
   - Google
 apis:
-  - name: Google Business Messages API
+  - aid: google-business-messages:google-business-messages
+    name: Google Business Messages API
     description: >-
       Enables agents to send messages, create conversation events, update
       message receipts, and manage customer satisfaction surveys for business
@@ -33,7 +36,7 @@ apis:
       - Conversations
       - Surveys
 common:
-  - type: GettingStarted
+  - type: Getting Started
     url: https://developers.google.com/business-communications/business-messages/guides
   - type: Pricing
     url: https://developers.google.com/business-communications/business-messages
