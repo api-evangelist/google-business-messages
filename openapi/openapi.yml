@@ -16,7 +16,7 @@ paths:
   /conversations/{conversationId}/messages:
     post:
       operationId: createMessage
-      summary: Create Message
+      summary: Google Business Messages Create Message
       description: Sends a message from an agent to a user.
       parameters:
         - name: conversationId
@@ -40,7 +40,7 @@ paths:
   /conversations/{conversationId}/messages/{messageId}:receiptUpdate:
     patch:
       operationId: updateReceipt
-      summary: Update Message Receipt
+      summary: Google Business Messages Update Message Receipt
       description: Sends a receipt for a message from an agent to a user.
       parameters:
         - name: conversationId
@@ -65,7 +65,7 @@ paths:
   /conversations/{conversationId}/events:
     post:
       operationId: createEvent
-      summary: Create Event
+      summary: Google Business Messages Create Event
       description: Creates an event in a conversation.
       parameters:
         - name: conversationId
@@ -89,7 +89,7 @@ paths:
   /conversations/{conversationId}/surveys:
     post:
       operationId: createSurvey
-      summary: Create Survey
+      summary: Google Business Messages Create Survey
       description: Creates a customer satisfaction survey in a conversation.
       parameters:
         - name: conversationId
