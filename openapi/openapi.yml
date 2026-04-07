@@ -37,6 +37,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Conversations
   /conversations/{conversationId}/messages/{messageId}:receiptUpdate:
     patch:
       operationId: updateReceipt
@@ -62,6 +64,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+        - Conversations
   /conversations/{conversationId}/events:
     post:
       operationId: createEvent
@@ -86,6 +90,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Event'
+      tags:
+        - Conversations
   /conversations/{conversationId}/surveys:
     post:
       operationId: createSurvey
@@ -110,6 +116,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Survey'
+      tags:
+        - Conversations
 components:
   securitySchemes:
     OAuth2:
@@ -194,3 +202,5 @@ components:
           type: string
 security:
   - OAuth2: []
+tags:
+  - name: Conversations
