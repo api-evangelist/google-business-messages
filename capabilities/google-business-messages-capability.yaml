@@ -1,0 +1,228 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Business Messages API
+  description: The Google Business Messages API enables agents to send messages, create events, and manage customer satisfaction
+    surveys within conversations. Allows businesses to communicate with customers directly through Google entry points.
+  tags:
+  - Google
+  - Business
+  - Messages
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-business-messages
+    baseUri: https://businessmessages.googleapis.com/v1
+    description: Google Business Messages API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_BUSINESS_MESSAGES_TOKEN}}'
+    resources:
+    - name: conversations-conversationid-messages
+      path: /conversations/{conversationId}/messages
+      operations:
+      - name: createmessage
+        method: POST
+        description: Google Business Messages Create Message
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: conversations-conversationid-messages-messageid-
+      path: /conversations/{conversationId}/messages/{messageId}:receiptUpdate
+      operations:
+      - name: updatereceipt
+        method: PATCH
+        description: Google Business Messages Update Message Receipt
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+        - name: messageId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: conversations-conversationid-events
+      path: /conversations/{conversationId}/events
+      operations:
+      - name: createevent
+        method: POST
+        description: Google Business Messages Create Event
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: conversations-conversationid-surveys
+      path: /conversations/{conversationId}/surveys
+      operations:
+      - name: createsurvey
+        method: POST
+        description: Google Business Messages Create Survey
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-business-messages-rest
+    description: REST adapter for Google Business Messages API.
+    resources:
+    - path: /conversations/{conversationId}/messages
+      name: createmessage
+      operations:
+      - method: POST
+        name: createmessage
+        description: Google Business Messages Create Message
+        call: google-business-messages.createmessage
+        with:
+          conversationId: rest.conversationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /conversations/{conversationId}/messages/{messageId}:receiptUpdate
+      name: updatereceipt
+      operations:
+      - method: PATCH
+        name: updatereceipt
+        description: Google Business Messages Update Message Receipt
+        call: google-business-messages.updatereceipt
+        with:
+          conversationId: rest.conversationId
+          messageId: rest.messageId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /conversations/{conversationId}/events
+      name: createevent
+      operations:
+      - method: POST
+        name: createevent
+        description: Google Business Messages Create Event
+        call: google-business-messages.createevent
+        with:
+          conversationId: rest.conversationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /conversations/{conversationId}/surveys
+      name: createsurvey
+      operations:
+      - method: POST
+        name: createsurvey
+        description: Google Business Messages Create Survey
+        call: google-business-messages.createsurvey
+        with:
+          conversationId: rest.conversationId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-business-messages-mcp
+    transport: http
+    description: MCP adapter for Google Business Messages API for AI agent use.
+    tools:
+    - name: createmessage
+      description: Google Business Messages Create Message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-business-messages.createmessage
+      with:
+        conversationId: tools.conversationId
+      inputParameters:
+      - name: conversationId
+        type: string
+        description: conversationId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatereceipt
+      description: Google Business Messages Update Message Receipt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-business-messages.updatereceipt
+      with:
+        conversationId: tools.conversationId
+        messageId: tools.messageId
+      inputParameters:
+      - name: conversationId
+        type: string
+        description: conversationId
+        required: true
+      - name: messageId
+        type: string
+        description: messageId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createevent
+      description: Google Business Messages Create Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-business-messages.createevent
+      with:
+        conversationId: tools.conversationId
+      inputParameters:
+      - name: conversationId
+        type: string
+        description: conversationId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsurvey
+      description: Google Business Messages Create Survey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-business-messages.createsurvey
+      with:
+        conversationId: tools.conversationId
+      inputParameters:
+      - name: conversationId
+        type: string
+        description: conversationId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_BUSINESS_MESSAGES_TOKEN: GOOGLE_BUSINESS_MESSAGES_TOKEN
