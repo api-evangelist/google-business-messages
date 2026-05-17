@@ -36,11 +36,11 @@ apis:
       - Messaging
       - Surveys
 common:
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developers.google.com/business-communications/business-messages/guides
   - type: Pricing
     url: https://developers.google.com/business-communications/business-messages
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/context.jsonld
 maintainers:
   - FN: Kin Lane
