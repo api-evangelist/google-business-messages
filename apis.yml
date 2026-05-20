@@ -10,36 +10,38 @@ created: '2026-03-13'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
-- Business Communications
-- Conversations
-- Customer Support
-- Google
-- Messaging
-apis:
-- aid: google-business-messages:google-business-messages
-  name: Google Business Messages API
-  description: Enables agents to send messages, create conversation events, update message receipts, and manage customer satisfaction
-    surveys for business communications through Google.
-  humanURL: https://developers.google.com/business-communications/business-messages
-  baseURL: https://businessmessages.googleapis.com/v1
-  properties:
-  - type: OpenAPI
-    url: openapi/openapi.yml
-  - type: JSONSchema
-    url: json-schema/Message.json
-  - type: NaftikoCapability
-    url: capabilities/openapi-conversations.yaml
-  tags:
+  - Business Communications
   - Conversations
+  - Customer Support
+  - Google
   - Messaging
-  - Surveys
+apis:
+  - aid: google-business-messages:google-business-messages
+    name: Google Business Messages API
+    description: Enables agents to send messages, create conversation events, update message receipts, and manage customer satisfaction
+      surveys for business communications through Google.
+    humanURL: https://developers.google.com/business-communications/business-messages
+    baseURL: https://businessmessages.googleapis.com/v1
+    properties:
+    - type: OpenAPI
+      url: openapi/openapi.yml
+    - type: JSONSchema
+      url: json-schema/Message.json
+    - type: NaftikoCapability
+      url: capabilities/openapi-conversations.yaml
+    tags:
+    - Conversations
+    - Messaging
+    - Surveys
 common:
-- type: GettingStarted
-  url: https://developers.google.com/business-communications/business-messages/guides
-- type: Pricing
-  url: https://developers.google.com/business-communications/business-messages
-- type: JSONLD
-  url: json-ld/context.jsonld
+  - type: GitHubOrganization
+    url: https://github.com/google-business-communications
+  - type: GettingStarted
+    url: https://developers.google.com/business-communications/business-messages/guides
+  - type: Pricing
+    url: https://developers.google.com/business-communications/business-messages
+  - type: JSONLD
+    url: json-ld/context.jsonld
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
