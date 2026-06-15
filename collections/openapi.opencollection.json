@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Business Messages API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Business Messages Create Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://businessmessages.googleapis.com/v1/conversations/:conversationId/messages",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a message from an agent to a user."
+        },
+        {
+          "info": {
+            "name": "Google Business Messages Update Message Receipt",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://businessmessages.googleapis.com/v1/conversations/:conversationId/messages/:messageId:receiptUpdate",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a receipt for a message from an agent to a user."
+        },
+        {
+          "info": {
+            "name": "Google Business Messages Create Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://businessmessages.googleapis.com/v1/conversations/:conversationId/events",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an event in a conversation."
+        },
+        {
+          "info": {
+            "name": "Google Business Messages Create Survey",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://businessmessages.googleapis.com/v1/conversations/:conversationId/surveys",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a customer satisfaction survey in a conversation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
