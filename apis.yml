@@ -34,6 +34,12 @@ apis:
       - Messaging
       - Surveys
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-business-messages-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-business-messages-domain-security.yml
+  - type: Authentication
+    url: authentication/google-business-messages-authentication.yml
   - type: OAuthScopes
     url: scopes/google-business-messages-scopes.yml
   - type: GitHubOrganization
