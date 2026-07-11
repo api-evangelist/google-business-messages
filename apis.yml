@@ -34,6 +34,8 @@ apis:
       - Messaging
       - Surveys
 common:
+  - type: OAuthScopes
+    url: scopes/google-business-messages-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/google-business-communications
   - type: GettingStarted
