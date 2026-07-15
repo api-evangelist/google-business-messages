@@ -34,6 +34,8 @@ apis:
       - Messaging
       - Surveys
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-business-messages-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-business-messages-vulnerability-disclosure.yml
   - type: DomainSecurity
