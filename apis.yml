@@ -5,7 +5,20 @@ description: >-
   surveys within conversations. It allows businesses to communicate with customers directly through Google entry points
   such as Search and Maps.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-business-messages.png
 url: https://raw.githubusercontent.com/api-evangelist/google-business-messages/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -17,22 +30,18 @@ tags:
   - Google
   - Messaging
 apis:
-  - aid: google-business-messages:google-business-messages
-    name: Google Business Messages API
-    description: >-
-      Enables agents to send messages, create conversation events, update message receipts, and manage customer
-      satisfaction surveys for business communications through Google.
-    humanURL: https://developers.google.com/business-communications/business-messages
-    baseURL: https://businessmessages.googleapis.com/v1
-    properties:
-      - type: OpenAPI
-        url: openapi/openapi.yml
-      - type: JSONSchema
-        url: json-schema/Message.json
-    tags:
-      - Conversations
-      - Messaging
-      - Surveys
+- aid: google-business-messages:google-business-messages-conversations-api
+  name: Google Business Messages Conversations API
+  description: The Conversations API from Google Business Messages — 4 operation(s) for conversations.
+  humanURL: https://developers.google.com/business-communications/business-messages
+  baseURL: https://businessmessages.googleapis.com/v1
+  tags:
+  - Conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-business-messages-conversations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/Message.json
 common:
   - type: AgenticAccess
     url: agentic-access/google-business-messages-agentic-access.yml
