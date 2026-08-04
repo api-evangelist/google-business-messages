@@ -1,0 +1,14 @@
+{
+  "provider": "google-business-messages",
+  "sources": [
+    "google-business-messages-conversations-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-business-messages-conversations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
