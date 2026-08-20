@@ -26,6 +26,12 @@ specificationVersion: '0.23'
 tags:
   - Business Communications
   - Conversations
+  - Customer-Support
+  - Google
+  - Messaging
+tags_raw:
+  - Business Communications
+  - Conversations
   - Customer Support
   - Google
   - Messaging
