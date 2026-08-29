@@ -61,6 +61,9 @@ apis:
   - type: JSONSchema
     url: json-schema/Message.json
 common:
+  - type: CapabilityMap
+    url: capabilities/google-business-messages-capability-edges.yml
+    name: Google Business Messages Business Capability Map
   - type: AgenticAccess
     url: agentic-access/google-business-messages-agentic-access.yml
   - type: VulnerabilityDisclosure
