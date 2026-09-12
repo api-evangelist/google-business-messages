@@ -61,6 +61,8 @@ apis:
   - type: JSONSchema
     url: json-schema/Message.json
 common:
+  - type: Website
+    url: https://www.google.com/
   - type: CapabilityMap
     url: capabilities/google-business-messages-capability-edges.yml
     name: Google Business Messages Business Capability Map
@@ -85,3 +87,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: google
+x-relationship: product
