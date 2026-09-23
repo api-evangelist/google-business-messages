@@ -120,32 +120,6 @@ paths:
       - Conversations
 components:
   schemas:
-    Event:
-      type: object
-      properties:
-        name:
-          type: string
-        eventType:
-          type: string
-          enum:
-          - TYPING_STARTED
-          - TYPING_STOPPED
-          - REPRESENTATIVE_JOINED
-          - REPRESENTATIVE_LEFT
-        representative:
-          type: object
-          properties:
-            representativeType:
-              type: string
-            displayName:
-              type: string
-    Receipt:
-      type: object
-      properties:
-        receiptType:
-          type: string
-          enum:
-          - READ
     Message:
       type: object
       properties:
@@ -185,6 +159,13 @@ components:
           type: boolean
         createTime:
           type: string
+    Receipt:
+      type: object
+      properties:
+        receiptType:
+          type: string
+          enum:
+          - READ
     Survey:
       type: object
       properties:
@@ -192,6 +173,25 @@ components:
           type: string
         surveyId:
           type: string
+    Event:
+      type: object
+      properties:
+        name:
+          type: string
+        eventType:
+          type: string
+          enum:
+          - TYPING_STARTED
+          - TYPING_STOPPED
+          - REPRESENTATIVE_JOINED
+          - REPRESENTATIVE_LEFT
+        representative:
+          type: object
+          properties:
+            representativeType:
+              type: string
+            displayName:
+              type: string
   securitySchemes:
     OAuth2:
       type: oauth2
