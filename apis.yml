@@ -38,7 +38,7 @@ specificationVersion: '0.23'
 tags:
   - Business Communications
   - Conversations
-  - Customer-Support
+  - Customer Support
   - Google
   - Messaging
 tags_raw:
@@ -47,6 +47,7 @@ tags_raw:
   - Customer Support
   - Google
   - Messaging
+  - Customer-Support
 apis:
 - aid: google-business-messages:google-business-messages-conversations-api
   name: Google Business Messages Conversations API
