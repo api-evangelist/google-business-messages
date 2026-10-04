@@ -120,6 +120,20 @@ paths:
       - Conversations
 components:
   schemas:
+    Survey:
+      type: object
+      properties:
+        name:
+          type: string
+        surveyId:
+          type: string
+    Receipt:
+      type: object
+      properties:
+        receiptType:
+          type: string
+          enum:
+          - READ
     Message:
       type: object
       properties:
@@ -178,20 +192,6 @@ components:
               type: string
             displayName:
               type: string
-    Survey:
-      type: object
-      properties:
-        name:
-          type: string
-        surveyId:
-          type: string
-    Receipt:
-      type: object
-      properties:
-        receiptType:
-          type: string
-          enum:
-          - READ
   securitySchemes:
     OAuth2:
       type: oauth2
