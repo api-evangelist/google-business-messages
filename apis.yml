@@ -62,6 +62,12 @@ apis:
   - type: JSONSchema
     url: json-schema/Message.json
 common:
+  - type: Plans
+    url: plans/google-business-messages-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/google-business-messages-rate-limits.yml
+  - type: FinOps
+    url: finops/google-business-messages-finops.yml
   - type: Website
     url: https://www.google.com/
   - type: CapabilityMap
